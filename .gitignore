@@ -1,0 +1,8 @@
+transactions.db
+receipts/*
+harvest_cfg.json
+data/*
+test/*
+*.txt
+.idea/*
+.DS_Store
