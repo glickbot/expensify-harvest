@@ -6,3 +6,4 @@ test/*
 *.txt
 .idea/*
 .DS_Store
+*.lock

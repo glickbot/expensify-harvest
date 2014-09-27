@@ -5,3 +5,5 @@ gem "harvested"
 gem 'multipart-post'
 gem 'capybara'
 gem 'poltergeist'
+gem 'chronic'
+gem 'slop'

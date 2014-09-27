@@ -12,7 +12,6 @@ unless File.exists?(config_file)
 end
 
 config = JSON.parse(File.read(config_file))
-puts config
 
 harvest = Harvest.hardy_client(subdomain: config['subdomain'], username: config['username'], password: config['password'])
 
