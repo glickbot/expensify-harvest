@@ -164,13 +164,14 @@ data.each do |r|
             elsif receipt.has_selector? "table.ereceipt"
               session.driver.resize(310, 340)
               session.save_screenshot(receipt_path, :selector => 'table.ereceipt')
+              receipt_type = "image/png"
             end
           else
             puts "#recipt element not found in html, defaulting to full view"
             session.save_screenshot(receipt_path, :full => true)
+            receipt_type = "image/png"
           end
           puts "Download complete."
-          receipt_type = "image/png"
           Capybara.reset_sessions!
         else
           ext = u.content_type.split('/')[1]
