@@ -8,9 +8,13 @@ require 'json'
 require 'open-uri'
 require 'capybara'
 require 'capybara/poltergeist'
+require 'fileutils'
 
 config_file = "./harvest_cfg.json"
 receipt_dir = "./receipts"
+unless File.directory?(receipt_dir)
+  FileUtils.mkdir_p(receipt_dir)
+end
 transactions_file = "./transactions.db"
 
 if ARGV.empty?
@@ -215,8 +219,6 @@ data.each do |r|
   projects_expensed[r[:tag]] = 0 unless projects_expensed.has_key?(r[:tag])
   projects_expensed[r[:tag]] += total_cost
 end
-
-puts projects_expensed
 
 projects_expensed.each_key { |k|
   puts sprintf "%-20s$%.2f", k, projects_expensed[k]

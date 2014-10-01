@@ -36,7 +36,6 @@ puts "Retrieving expense #{id}"
 begin
   expense = harvest.expenses.find(transactions[id][:h_id])
   p "Deleting expense #{transactions[id][:h_id]}"
-  p expense
   harvest.expenses.delete(expense)
   p "Expense deleted"
 rescue Harvest::NotFound
