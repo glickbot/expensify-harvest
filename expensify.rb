@@ -138,7 +138,10 @@ data.each do |r|
     f.write Marshal.dump(transactions)
   end
 
-  unless expense[:has_receipt]
+  unless r[:receipt].nil?
+    if expense[:has_receipt]
+      next
+    end
     receipt_file = ""
     receipt_type = ""
     receipt_path = ""
@@ -215,6 +218,8 @@ data.each do |r|
     File.open(transactions_file,'wb') do |f|
       f.write Marshal.dump(transactions)
     end
+  else
+    puts "No receipt found, skipping receipt!"
   end
   total_expensed += total_cost
   projects_expensed[r[:tag]] = 0 unless projects_expensed.has_key?(r[:tag])
