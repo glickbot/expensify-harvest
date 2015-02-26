@@ -22,9 +22,12 @@ expenses.
 - Profit
 
 ##Install
-#### Bundler
-- untested, check the requirements in the script if you have issues
-- probably need PhantomJS, installed with brew, etc, for the 'poltergeist' gem
+
+	]$ brew install ruby (maybe optional)
+	]$ gem install bundler
+	]$ sudo xcode-select --install
+	]$ brew install phantomjs
+	]$ bundler
 
 ##Configure
 #### harvest_cfg.json
